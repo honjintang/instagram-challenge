@@ -2,6 +2,8 @@ class Turtlegram < ApplicationRecord
   mount_uploader :image, ImageUploader
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :likes
 
   # has_many :comments,
   # -> { extending WithUserAssociationExtension },
@@ -13,4 +15,10 @@ class Turtlegram < ApplicationRecord
     comment.save
   end
 
+  def new_like(user)
+    like = user.likes.new
+    like.update(turtlegram_id: self.id)
+    like.save
+  end
+  
 end

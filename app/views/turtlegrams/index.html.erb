@@ -16,6 +16,8 @@
     Caption: <strong><%= turtlegram.caption %></strong>
     </div>
   </br>
+  <%= link_to 'Like Photo', new_turtlegram_like_path(turtlegram), id: 'like-btn' %>
+  </br>
     <table>
       <tr>
     <th><div id='comment'>

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   resources :turtlegrams do
     resources :comments
+    resources :likes
   end
 
   root 'turtlegrams#index'
